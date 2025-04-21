@@ -3,24 +3,30 @@ name: "CodeQL Analysis"
 on:
   push:
     branches: 
-      - main  # or any other branch you want to scan
+      - main
   pull_request:
     branches: 
-      - main  # or any other branch you want to scan
+      - main
 
 jobs:
   analyze:
     name: Analyze Codebase
     runs-on: ubuntu-latest
     
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up CodeQL
-      uses: github/codeql-action/setup-python@v2  # Set up CodeQL for Python (adjust for other languages)
-    
     - name: Initialize CodeQL
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/init@v2
       with:
-        language: python  # Change to the language you're using (e.g., 'javascript', 'java', 'go')
+        languages: python  # Change to your language (e.g., javascript, java)
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
