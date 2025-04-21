@@ -1,0 +1,26 @@
+name: "CodeQL Analysis"
+
+on:
+  push:
+    branches: 
+      - main  # or any other branch you want to scan
+  pull_request:
+    branches: 
+      - main  # or any other branch you want to scan
+
+jobs:
+  analyze:
+    name: Analyze Codebase
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up CodeQL
+      uses: github/codeql-action/setup-python@v2  # Set up CodeQL for Python (adjust for other languages)
+    
+    - name: Initialize CodeQL
+      uses: github/codeql-action/analyze@v2
+      with:
+        language: python  # Change to the language you're using (e.g., 'javascript', 'java', 'go')
