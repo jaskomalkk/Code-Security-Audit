@@ -36,5 +36,5 @@ Given what I’ve learned, I would:
 3. **Optimize Images**: Ensure that image paths are relative or hosted online, rather than using local paths, to make the project more portable and accessible.
 4. **Expand Accessibility Features**: Further explore and implement advanced accessibility features to make the resume usable for all users, including those with disabilities.
 
-Overall, this project has been a valuable learning experience, providing insights into HTML structure, accessibility, and the importance of careful planning and execution.
+
 
